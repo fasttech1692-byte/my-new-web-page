@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Logo Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .success, .error { display:none; margin-top:1rem; padding:.75rem; border-radius:8px; }
+    .success{ background:#e8f7ee; color:#0f7b2c; }
+    .error{ background:#fff4f4; color:#a50e0e; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="brand" href="index.html"><img src="assets/logo-mark.svg" alt="Logo Studio mark" /> Logo Studio</a>
+      <nav class="nav">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html#process">Process</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container narrow">
+      <h1>Contact us</h1>
+      <p>Tell us about your logo project. We typically respond within one business day.</p>
+
+      <!-- OPTION A: Formspree (no backend required). Replace YOUR_FORMSPREE_ENDPOINT below -->
+      <!-- <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" class="form" id="contactForm"> -->
+
+      <!-- OPTION B: Node backend (provided in /backend/server.js). Uncomment this form action when you deploy the server. -->
+      <form action="http://localhost:3000/api/contact" method="POST" class="form" id="contactForm">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-row">
+          <label for="company">Company (optional)</label>
+          <input type="text" id="company" name="company" />
+        </div>
+        <div class="form-row">
+          <label for="budget">Estimated budget</label>
+          <select id="budget" name="budget" required>
+            <option value="" disabled selected>Select…</option>
+            <option value="$250–$500">$250–$500</option>
+            <option value="$500–$1,000">$500–$1,000</option>
+            <option value="$1,000+">$1,000+</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="details">Project details</label>
+          <textarea id="details" name="details" rows="6" placeholder="Brand name, style preferences, timeline…" required></textarea>
+        </div>
+        <div class="form-row inline">
+          <label class="checkbox">
+            <input type="checkbox" name="brandkit" value="Yes"> Include a basic brand kit
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+        <p class="success" id="successMsg">Thanks! Your message was sent.</p>
+        <p class="error" id="errorMsg">Sorry, something went wrong. Please try again.</p>
+      </form>
+
+      <p class="muted">By submitting, you agree to our privacy policy.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <p>© <span id="year"></span> Logo Studio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/contact.js"></script>
+</body>
+</html>
